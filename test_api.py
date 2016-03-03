@@ -54,7 +54,7 @@ def side_t(client, side):
     global payload, payload_wrong_json, payload_wrong_base64, jsn
     r = client.get('/v1/diff/%s' % side)
     assert r.status_code == 200
-    assert '' == json.loads(r.data.decode('utf-8'))
+    assert {} == json.loads(r.data.decode('utf-8'))
 
     # test post request with correct payload
     r = post_data(client, side, payload)
